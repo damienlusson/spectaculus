@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Deck, Slide } from 'spectacle';
 import createTheme from 'spectacle/lib/themes/default';
-
+import availableSlides from './availableSlides';
 import 'normalize.css';
 import './utils/prism';
 import './utils/prism.css';
@@ -21,22 +21,7 @@ const theme = createTheme(
   }
 );
 
-const availableSlides = [
-  {
-    name: 'HeadingSlide',
-    import: import('./slides/HeadingSlide')
-  },
-  {
-    name: '2',
-    import: import('./slides/2')
-  },
-  {
-    name: 'CodeSlide',
-    import: import('./slides/CodeSlide')
-  }
-];
-
-export default class Presentation extends Component {
+class Presentation extends Component {
   static propTypes = {
     data: PropTypes.array.isRequired
   };
@@ -90,3 +75,5 @@ export default class Presentation extends Component {
     );
   }
 }
+
+export default Presentation;
