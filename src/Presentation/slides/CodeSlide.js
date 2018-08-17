@@ -1,19 +1,15 @@
 import React from 'react';
-import { Heading, Slide, Text, Layout } from 'spectacle';
 import CodingSlide from 'spectacle-code-slide';
+import { Props } from '../../Spectaculus';
 
-class CodeSlide {
-  constructor(data) {
-    this.data = data;
-  }
-
+class CodeSlide extends Props {
   render() {
     return (
       <CodingSlide
         transition={[]}
-        lang={this.data.lang}
-        code={this.data.code}
-        ranges={this.data.ranges}
+        lang={this.props.lang}
+        code={this.props.code}
+        ranges={this.props.ranges}
       />
     );
   }

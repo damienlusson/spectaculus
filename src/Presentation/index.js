@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Deck, Slide } from 'spectacle';
+import React from 'react';
 import createTheme from 'spectacle/lib/themes/default';
-import availableSlides from './availableSlides';
-import 'normalize.css';
-import './utils/prism';
-import './utils/prism.css';
-import './utils/app.css';
+import { Presentation } from '../Spectaculus';
+import code from './codes/sample';
+import './app.css';
 
 const theme = createTheme(
   {
@@ -21,59 +17,54 @@ const theme = createTheme(
   }
 );
 
-class Presentation extends Component {
-  static propTypes = {
-    data: PropTypes.array.isRequired
-  };
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      slides: Array(this.props.data.length).fill(<Slide key="loading" />)
-    };
+const slides = [
+  {
+    name: 'HeadingSlide',
+    import: import('./Slides/HeadingSlide')
+  },
+  {
+    name: 'CodeSlide',
+    import: import('./Slides/CodeSlide')
   }
+];
 
-  renderSlide = (SlideConstructor, data) => {
-    return new SlideConstructor(data).render();
-  };
+const MyPresentation = () => (
+  <Presentation
+    slides={slides}
+    theme={theme}
+    data={[
+      {
+        slideName: 'HeadingSlide',
+        title: 'Coucou'
+      },
+      {
+        slideName: 'HeadingSlide',
+        title: 'Coucou 2'
+      },
+      {
+        slideName: 'CodeSlide',
+        lang: 'js',
+        code: code,
+        ranges: [
+          {
+            loc: [0, 20],
+            title: 'Walking through some code',
+            note:
+              'Heres a note! Heres a note! Heres a note!Heres a note! Heres a note! Heres a note! Heres a note! Heres a note!'
+          },
+          { loc: [0, 1], title: 'The Beginning' },
+          {
+            loc: [1, 2],
+            note:
+              'Heres a note! Heres a note! Heres a note!Heres a note! Heres a note! Heres a note! Heres a note! Heres a note!'
+          },
+          { loc: [2, 3] },
+          { loc: [4, 7] },
+          { loc: [8, 10] }
+        ]
+      }
+    ]}
+  />
+);
 
-  async componentDidMount() {
-    const slides = [];
-    const imports = availableSlides.map(slide => slide.import);
-    const importedSlides = await Promise.all(imports);
-
-    this.props.data.forEach((dataSlide, index) => {
-      const importedSlideIndex = availableSlides.findIndex(
-        availableSlide => availableSlide.name === dataSlide.slideName
-      );
-      const renderedSlide = this.renderSlide(
-        importedSlides[importedSlideIndex].default,
-        dataSlide
-      );
-      slides.push(renderedSlide);
-    });
-
-    this.setState({ slides: slides });
-  }
-
-  render() {
-    return (
-      <Deck
-        transition={['fade']}
-        transitionDuration={500}
-        contentWidth={1700}
-        contentHeight={window.innerHeight}
-        controls={false}
-        progress="none"
-        theme={theme}
-      >
-        {this.state.slides.map((slide, index) => {
-          return React.cloneElement(slide, { key: index });
-        })}
-      </Deck>
-    );
-  }
-}
-
-export default Presentation;
+export default MyPresentation;

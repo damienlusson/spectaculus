@@ -1,11 +1,8 @@
 import React from 'react';
 import { Heading, Slide, Text, Layout } from 'spectacle';
+import { Props } from '../../Spectaculus';
 
-class HeadingSlide {
-  constructor(data) {
-    this.data = data;
-  }
-
+class HeadingSlide extends Props {
   render() {
     return (
       <Slide bgColor="black">
@@ -29,7 +26,7 @@ class HeadingSlide {
             }}
           >
             <Heading textColor="white" size={1}>
-              {this.data.title}
+              {this.props.title}
             </Heading>
             <Heading
               textFont="secondary"
