@@ -20,11 +20,11 @@ const theme = createTheme(
 const slides = [
   {
     name: 'HeadingSlide',
-    import: import('./Slides/HeadingSlide')
+    import: import('./slides/HeadingSlide')
   },
   {
     name: 'CodeSlide',
-    import: import('./Slides/CodeSlide')
+    import: import('./slides/CodeSlide')
   }
 ];
 

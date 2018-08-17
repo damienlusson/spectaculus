@@ -1,18 +1,28 @@
 {
-  "name": "spectacle-boilerplate",
+  "name": "spectaculus",
   "version": "0.1.0",
-  "private": true,
+  "description": "Create awesome Spectacle presentations in a modularized way.",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greeeg/spectaculus.git"
+  },
+  "author": "Grégoire Mielle <hello@greeeg.com> (https://greeeg.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/greeeg/spectaculus/issues"
+  },
+  "homepage": "https://github.com/greeeg/spectaculus#readme",
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "spectacle-code-slide": "^0.5.2",
     "spectacle-scripts": "2.0.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
   }
 }

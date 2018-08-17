@@ -1,7 +1,7 @@
-class Slide {
+class Props {
   constructor(props) {
     this.props = props;
   }
 }
 
-export default Slide;
+export default Props;
