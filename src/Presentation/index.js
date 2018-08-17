@@ -35,11 +35,8 @@ const MyPresentation = () => (
     data={[
       {
         slideName: 'HeadingSlide',
-        title: 'Coucou'
-      },
-      {
-        slideName: 'HeadingSlide',
-        title: 'Coucou 2'
+        title: 'Hello World',
+        description: 'This is a cool description about my talk'
       },
       {
         slideName: 'CodeSlide',
@@ -49,14 +46,12 @@ const MyPresentation = () => (
           {
             loc: [0, 20],
             title: 'Walking through some code',
-            note:
-              'Heres a note! Heres a note! Heres a note!Heres a note! Heres a note! Heres a note! Heres a note! Heres a note!'
+            note: 'Heres a note!'
           },
           { loc: [0, 1], title: 'The Beginning' },
           {
             loc: [1, 2],
-            note:
-              'Heres a note! Heres a note! Heres a note!Heres a note! Heres a note! Heres a note! Heres a note! Heres a note!'
+            note: 'Heres a note!'
           },
           { loc: [2, 3] },
           { loc: [4, 7] },

@@ -34,7 +34,7 @@ class HeadingSlide extends Props {
               size={5}
               style={{ paddingBottom: 40, paddingTop: 10 }}
             >
-              À la découverte de React & React Native
+              {this.props.description}
             </Heading>
           </Layout>
         </Layout>
